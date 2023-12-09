@@ -1,0 +1,45 @@
+-var title = "Reject Response"
+
+html
+  head
+    include ../partials/head.pug
+    if request_type == 'record addition' && action == 'reject'
+      script(type='module' src='/scripts/record_addition_reject.js')
+    else if request_type == 'record addition' && action == 'authorize'
+      script(type='module' src='/scripts/record_addition_authorize.js')
+    else if request_type == 'view data' && action == 'reject'
+      script(type='module' src='/scripts/view_data_reject.js')
+    else if request_type == 'view data' && action == 'authorize'
+      script(type='module' src='/scripts/view_data_authorize.js')
+
+  body(class='h-100 d-flex flex-column') 
+    include ../partials/authorized_appbar.pug
+
+    div(id='container' class='d-flex flex-column align-items-center justify-content-center flex-grow-1')
+
+      ul.nav.nav-tabs(role='tablist').m-2
+        li.nav-item(role='presentation')
+          button.nav-link.active(id='profile' data-bs-toggle='tab', data-bs-target='#profile_details', type='button', role='tab', aria-controls='request_details', aria-selected='true') Request Details
+
+      .tab-content
+
+        #login_details.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='login-tab')
+
+          each val, key in request_details 
+            .form-group.row
+              label.m-2.col.col-form-label(for=key)=key
+              .col.m-2.align-items-center
+                div.card(id=key)=val
+          
+          if request_details.blob_id != undefined 
+            .form-group.row
+              label.m-2.col.col-form-label(for='file')='file'
+              .col.m-2.align-items-center
+                div.card
+                  a(href="/blob?blob_uuid=" + request_details.blob_id) view file 
+
+        div(class='text-center')
+          if action == 'authorize'
+            button(id='authorize_btn' type='button' class='btn btn-success m-2') Authorize Request
+          else if action == 'reject'
+            button(id='reject_btn' type='button' class='btn btn-danger m-2') Reject Request

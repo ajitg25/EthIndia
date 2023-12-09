@@ -1,0 +1,14 @@
+-var title = "Login"
+
+html
+  head
+    include ../partials/head.pug 
+    script(defer type='text/javascript' src='/scripts/authorize.js')
+
+  body(class='h-100 d-flex flex-column') 
+    include ../partials/authorized_appbar.pug
+
+    div(id='container' class='d-flex align-items-center justify-content-center flex-grow-1')
+      div(class='card p-2')
+        h2(class='m-1') Account Yet To Be Verified
+        h2(class='m-1')= 'Request ID: ' + authorization_req_id

@@ -1,0 +1,14 @@
+-var title = "Verify Users"
+
+html
+  head
+    include ../partials/head.pug 
+    script(defer type='text/javascript' src='/scripts/verify_new_users.js')
+
+  body(class='h-100 d-flex flex-column') 
+    include ../partials/authorized_appbar.pug
+
+    div(id='cards_container' class='overflow-auto flex-grow-1')
+
+    div.text-center
+      button(id='back_btn' type='button' class='btn btn-primary btn-lg m-5' style='width:150px;') Back

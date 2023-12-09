@@ -1,0 +1,12 @@
+-var title = "Logout"
+
+html
+  head
+    include ../partials/head.pug 
+    script(defer type='text/javascript' src='/scripts/logout.js')
+
+  body(class='h-100 d-flex flex-column') 
+    include ../partials/unauthorized_appbar.pug
+
+    div(id='container' class='d-flex align-items-center justify-content-center flex-grow-1')
+      h1 Logging Out..

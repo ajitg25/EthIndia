@@ -1,0 +1,25 @@
+-var title = "Past Data"
+
+html
+  head
+    include ../partials/head.pug 
+    script(defer type='text/javascript' src='/scripts/past_data.js')
+
+  body(class='h-100 d-flex flex-column') 
+    include ../partials/authorized_appbar.pug
+
+    div(id='cards_container' class='overflow-auto flex-grow-1')
+
+      each blob_info, blob_uuid in blobs
+          .w-75.m-auto 
+            .card.m-3.p-2 
+              each val, key in blob_info
+                div
+                b=key + ': '
+                =val 
+              a(href='/blob?blob_uuid=' + blob_uuid)
+                button(class='btn btn-success btn mt-2') view record 
+
+
+    div.text-center
+      button(id='back_btn' type='button' class='btn btn-primary btn-lg m-5' style='width:150px;') Back

@@ -1,0 +1,21 @@
+ul#myTab.nav.nav-tabs(role='tablist').m-2
+  li.nav-item(role='presentation')
+    button.nav-link.active(id='transaction' data-bs-toggle='tab', data-bs-target='#transaction_details', type='button', role='tab', aria-controls='transaction', aria-selected='true') Transaction Details
+
+#myTabContent.tab-content
+
+  #transaction_details.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='transaction-tab')
+
+
+    .form-group.row
+      label.m-2.col.col-form-label(for='transaction_hash') Transaction Hash
+      .col.m-2.align-items-center.d-flex
+        input#transaction_hash.form-control-plaintext(type='text' readonly='' value='loading')
+
+    .form-group.row
+      label.m-2.col.col-form-label(for='no_confirmations') Number Of Block Confirmations (live)
+      .col.m-2.align-items-center.d-flex
+        input#no_confirmations.form-control-plaintext(type='text' readonly='' value='loading')
+
+  a.d-block(class='text-center' href='/')
+    button(id='dashboard_btn' type='button' class='btn btn-primary m-2') Back To Dashboard

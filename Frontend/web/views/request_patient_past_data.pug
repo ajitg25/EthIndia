@@ -1,0 +1,33 @@
+-var title = "Request Viewing Permission"
+
+// Pills navs
+html
+  head
+    include ../partials/head.pug 
+    script(type='module' src='/scripts/patient_past_data.js')
+
+  body(class='h-100 d-flex flex-column') 
+    include ../partials/authorized_appbar.pug
+
+    div(id='container' class='d-flex flex-column align-items-center justify-content-center flex-grow-1')
+
+      ul#myTab.nav.nav-tabs(role='tablist').m-2
+        li.nav-item(role='presentation')
+          button.nav-link.active(id='record' data-bs-toggle='tab', data-bs-target='#record_details', type='button', role='tab', aria-controls='record', aria-selected='true') Request Details
+
+      #myTabContent.tab-content
+
+        #record_details.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='record-tab')
+
+          .form-group.row
+            label.m-2.col.col-form-label(for='patient_aadhaar') Patient Aadhaar
+            .col.m-2.align-items-center
+              input.user_data#patient_aadhaar.form-control(type='text' placeholder='12 digit number')
+
+          .form-group.row
+            label.m-2.col.col-form-label(for='access_duration') Access Duration
+            .col.m-2.align-items-center
+              input.user_data#access_duration.form-control(type='text' placeholder='(in minutes)')
+
+        div(class='text-center')
+          button(id='submit_btn' type='button' class='btn btn-primary m-2') Submit

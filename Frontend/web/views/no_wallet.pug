@@ -1,0 +1,31 @@
+-var title = "No Wallet Login"
+
+html
+  head
+    include ../partials/head.pug 
+    script(defer type='text/javascript' src='/scripts/no_wallet.js')
+
+  body(class='h-100 d-flex flex-column') 
+    include ../partials/unauthorized_appbar.pug
+
+    div(id='container' class='d-flex flex-column align-items-center justify-content-center flex-grow-1')
+
+      ul#myTab.nav.nav-tabs(role='tablist').m-2
+        li.nav-item(role='presentation')
+          button.nav-link.active(id='login' data-bs-toggle='tab', data-bs-target='#login_details', type='button', role='tab', aria-controls='login', aria-selected='true') Login Details
+        
+      #myTabContent.tab-content
+
+        #login_details.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='login-tab')
+
+          .form-group.row
+            label.m-2.col.col-form-label(for='username') Username
+            .col.m-2.align-items-center
+              input.user_data#username.form-control(type='text' placeholder='Your Username')
+          .form-group.row
+            label.m-2.col.col-form-label(for='name') Password
+            .col.m-2.align-items-center
+              input.user_data#password.form-control(type='password' placeholder='Your Password')
+
+        div(class='text-center')
+          button(id='login_btn' type='button' class='btn btn-primary m-2') Login

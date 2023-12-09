@@ -1,0 +1,22 @@
+-var title = "Add Patient Data"
+
+html
+  head
+    include ../partials/head.pug 
+    script(defer type='text/javascript' src='/scripts/upload_patient_record.js')
+
+  body(class='h-100 d-flex flex-column') 
+    include ../partials/authorized_appbar.pug
+
+    
+
+    div(id='container' class='d-flex align-items-center justify-content-center flex-grow-1')
+      div(class='d-flex flex-column text-center')
+
+        h1(class='text-centre') Upload Patient Data
+
+        input(id='file_input' style='width: auto;' class='mx-2 my-5 form-control form-control-lg' type='file')
+       
+        button(id='extract_file_btn' type='button' class='btn btn-primary btn-lg m-2') Extract From File
+    
+        button(id='whole_file_upload_btn' type='button' class='btn btn-primary btn-lg m-2') Upload Whole File

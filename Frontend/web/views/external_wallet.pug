@@ -1,0 +1,19 @@
+-var title = "Login"
+
+html
+  head
+    include ../partials/head.pug 
+    script(type='text/javascript' src='/scripts/metamask-onboarding.bundle.js')
+    script(defer type='text/javascript' src='/scripts/external_wallet.js')
+    
+  body(class='h-100 d-flex flex-column') 
+    include ../partials/unauthorized_appbar.pug
+
+    div(id='container' class='d-flex align-items-center justify-content-center flex-grow-1')
+      div(class='d-flex flex-column')
+        //- button(type='button' class='btn btn-primary btn-lg disabled m-2') Install Coinbase
+        //- button(type='button' class='btn btn-primary btn-lg disabled m-2') Install Trust Wallet
+        //- button(type='button' class='btn btn-primary btn-lg disabled m-2') Install MyEtherWallet
+        button(id='metamask_btn' type='button' class='btn btn-primary btn-lg m-2') Connect To MetaMask
+        //- button(type='button' class='btn btn-primary btn-lg disabled m-2') Other
+        button(id='back_btn' type='button' class='btn btn-secondary btn-lg m-2') Back

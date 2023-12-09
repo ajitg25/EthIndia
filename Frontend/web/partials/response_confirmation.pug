@@ -1,0 +1,26 @@
+ul#myTab.nav.nav-tabs(role='tablist').m-2
+  li.nav-item(role='presentation')
+    button.nav-link.active(id='transaction' data-bs-toggle='tab', data-bs-target='#transaction_details', type='button', role='tab', aria-controls='transaction', aria-selected='true') Response Status
+
+#myTabContent.tab-content
+
+  #transaction_details.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='transaction-tab')
+
+
+    .form-group.row
+      label.m-2.col.col-form-label(for='request_description') request description
+      .col.m-2.align-items-center.d-flex
+        input#request_description.form-control-plaintext(type='text' readonly='' value='loading')
+
+    .form-group.row
+      label.m-2.col.col-form-label(for='response') your response
+      .col.m-2.align-items-center.d-flex
+        input#response.form-control-plaintext(type='text' readonly='' value='loading')
+
+    .form-group.row
+      label.m-2.col.col-form-label(for='status') status
+      .col.m-2.align-items-center.d-flex
+        input#status.form-control-plaintext(type='text' readonly='' value='loading')
+
+  a.d-block(class='text-center' href='/')
+    button(id='dashboard_btn' type='button' class='btn btn-primary m-2') Back To Dashboard

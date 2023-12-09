@@ -1,0 +1,32 @@
+-var title = "Edit Profile"
+
+html
+  head
+    include ../partials/head.pug 
+    script(defer type='text/javascript' src='/scripts/edit_profile.js')
+
+  body(class='h-100 d-flex flex-column') 
+    include ../partials/authorized_appbar.pug
+
+    div(id='container' class='d-flex flex-column align-items-center justify-content-center flex-grow-1')
+
+      ul#myTab.nav.nav-tabs(role='tablist').m-2
+        li.nav-item(role='presentation')
+          button.nav-link.active(id='profile' data-bs-toggle='tab', data-bs-target='#profile_details', type='button', role='tab', aria-controls='profile', aria-selected='true') Profile Details
+
+      .form-group.row
+        label.m-2.col.col-form-label(for='wallet_address') Wallet Address
+        .col.m-2.align-items-center
+          input#wallet_address.form-control-plaintext(type='text' readonly='' value=wallet_address)
+
+      #myTabContent.tab-content
+
+        #login_details.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='login-tab')
+
+          each val, key in details 
+            .form-group.row
+              label.m-2.col.col-form-label(for=key)=key
+              .col.m-2.align-items-center
+                input.user_data.form-control(id=key type='text' placeholder=val)
+        div(class='text-center')
+          button(id='change_btn' type='button' class='btn btn-primary m-2') Change Details

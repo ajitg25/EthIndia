@@ -1,0 +1,17 @@
+-var title = "Patient Past Data"
+
+html
+  head
+    include ../partials/head.pug 
+
+  body(class='h-100 d-flex flex-column') 
+    include ../partials/authorized_appbar.pug
+
+    div(id='container' class='d-flex align-items-center justify-content-center flex-grow-1')
+      div(class='d-flex flex-column')
+
+        a(href='/patient_past_data/request')
+          button(type='button' class='btn btn-primary btn-lg m-2 w-100') Request Permission
+
+        a(href='/patient_past_data/view')
+          button(type='button' class='btn btn-primary btn-lg m-2 w-100') View Patient Data

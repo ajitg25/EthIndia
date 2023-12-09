@@ -1,0 +1,26 @@
+-var title = "View Records"
+
+html
+  head
+    include ../partials/head.pug 
+    script(defer type='text/javascript' src='/scripts/past_data.js')
+
+  body(class='h-100 d-flex flex-column') 
+    include ../partials/authorized_appbar.pug
+
+    div(id='cards_container' class='overflow-auto flex-grow-1')
+
+      each blob in blobs
+          .w-75.m-auto 
+            .card.m-3.p-2
+              div
+                b Record Description
+                div=blob.description
+              div
+                b Record Identifier
+                div=blob.blob_name
+              a(href='/research/blob?blob_name=' + blob.blob_name)
+                button(class='btn btn-success btn mt-2') view record 
+
+    div.text-center
+      button(id='back_btn' type='button' class='btn btn-primary btn-lg m-5' style='width:150px;') Back

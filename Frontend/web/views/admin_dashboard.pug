@@ -1,0 +1,20 @@
+-var title = "Dashboard"
+
+html
+  head
+    include ../partials/head.pug 
+
+  body(class='h-100 d-flex flex-column') 
+    include ../partials/authorized_appbar.pug
+
+    div(id='container' class='d-flex align-items-center justify-content-center flex-grow-1')
+      div(class='d-flex flex-column')
+      
+        a(href='/verify_new_users')
+          button(type='button' class='btn btn-primary btn-lg m-2 w-100') Verify New Users
+        
+        a(href='/activity')
+          button(type='button' class='btn btn-primary btn-lg m-2 w-100') View All Activity
+      
+        a(href='/edit_profile')
+          button(type='button' class='btn btn-primary btn-lg m-2 w-100') Edit Profile

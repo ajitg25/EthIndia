@@ -1,0 +1,14 @@
+-var title = "Dashboard"
+
+html
+  head
+    include ../partials/head.pug 
+    script(defer type='text/javascript' src='/scripts/researcher_dashboard.js')
+
+  body(class='h-100 d-flex flex-column') 
+    include ../partials/authorized_appbar.pug
+
+    div(id='container' class='d-flex align-items-center justify-content-center flex-grow-1')
+      div(class='d-flex flex-column')
+        button(id='view_records_btn' type='button' class='btn btn-primary btn-lg m-2') View Records
+        button(id='edit_profile_btn' type='button' class='btn btn-primary btn-lg m-2') Edit Profile

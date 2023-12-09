@@ -1,0 +1,44 @@
+-var title = "New Patient Record"
+
+// Pills navs
+html
+  head
+    include ../partials/head.pug 
+    script(type='module' src='/scripts/new_patient_record.js')
+
+  body(class='h-100 d-flex flex-column') 
+    include ../partials/authorized_appbar.pug
+
+    div(id='container' class='d-flex flex-column align-items-center justify-content-center flex-grow-1')
+
+      ul#myTab.nav.nav-tabs(role='tablist').m-2
+        li.nav-item(role='presentation')
+          button.nav-link.active(id='record' data-bs-toggle='tab', data-bs-target='#record_details', type='button', role='tab', aria-controls='record', aria-selected='true') Record Details
+
+      #myTabContent.tab-content
+
+        #record_details.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='record-tab')
+
+
+          .form-group.row
+            label.m-2.col.col-form-label(for='wallet_address') Hospital Wallet Address
+            .col.m-2.align-items-center.d-flex
+              input#wallet_address.form-control-plaintext(type='text' readonly='' value=wallet_address)
+
+          .form-group.row
+            label.m-2.col.col-form-label.text-nowrap(for='file') Patient Record
+            .col.m-2.align-items-center.d-flex
+              a#file.d-block(href=`/blob?blob_uuid=${blob_uuid}`)= file_name 
+
+          .form-group.row
+            label.m-2.col.col-form-label(for='patient_aadhaar') Patient Aadhaar
+            .col.m-2.align-items-center
+              input.user_data#patient_aadhaar.form-control(type='text' placeholder='12 digit number')
+
+          .form-group.row
+            label.m-2.col.col-form-label(for='patient_aadhaar') Record Type
+            .col.m-2.align-items-center
+              input.user_data#description.form-control(type='text' placeholder='Record Description')
+
+        div(class='text-center')
+          button(id='submit_btn' type='button' class='btn btn-primary m-2') Submit
