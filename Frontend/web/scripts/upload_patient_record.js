@@ -40,7 +40,7 @@ $('#extract_file_btn').click(async () => {
 
   $('#container').html('<h2> Uploading... </h2>');
 
-  const response = await fetch('http://3.134.185.156:8889/upload', {
+  const response = await fetch('https://secureback.unistart.online/upload', {
     method: 'POST',
     body: form_data
   });
