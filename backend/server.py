@@ -13,8 +13,8 @@ from waitress import serve
 from flask_cors import CORS, cross_origin
 
 
-pytesseract.pytesseract.tesseract_cmd = "Tesseract-OCR//tesseract.exe"
-tessdata_dir_config = '--tessdata-dir "Tesseract-OCR/tessdata"'
+# pytesseract.pytesseract.tesseract_cmd = "Tesseract-OCR//tesseract.exe"
+# tessdata_dir_config = '--tessdata-dir "Tesseract-OCR/tessdata"'
 
 app = Flask(__name__)
 CORS(app)
