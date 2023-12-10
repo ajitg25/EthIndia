@@ -212,7 +212,7 @@ app.post('/authorize', (req, res) => {
     {
       type: 'string',
       name: 'Message',
-      value: 'Signing This Message Will Allow SecureYourHealth To Verify Your Identity',
+      value: 'Signing This Message Will Allow SecureYoureHealth To Verify Your Identity',
     },
     {
       type: 'uint32',
